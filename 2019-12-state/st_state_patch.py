@@ -117,6 +117,13 @@ class State(object):
     def __contains__(self, name):
         return name in self.__dict__
 
+    def reset(self):
+        self.__dict__.clear()
+
+    def reset_button(self):
+        if st.button('Reset'):
+            self.reset()
+
 
 def _get_global_state():
     if not getattr(GLOBAL_CONTAINER, '_global_state', None):
